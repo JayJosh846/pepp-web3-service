@@ -1,0 +1,29 @@
+{
+  "contracts": {},
+  "solidityLibs": {},
+  "proxies": {
+    "freemoney-blockchain/FreeMoney": [
+      {
+        "address": "0x97C1c5d249D14A0108874611dB02f5dc2405F3df",
+        "kind": "NonProxy",
+        "bytecodeHash": "f35f78d9f4c5582c793c0771a6aae06859e328e4f190ab18ce51dfa96fc8f4fa"
+      },
+      {
+        "address": "0x361Fb7f6cd25a2DD40474Ca95149cCf4C46951A0",
+        "kind": "NonProxy",
+        "bytecodeHash": "d73f8b4429cccf302708fcc638ad4380c1b3e5a21d33c974f5c2577019bd8500"
+      },
+      {
+        "address": "0x5204F2874e1649bD76fd3828EA068376365A8a7a",
+        "kind": "NonProxy",
+        "bytecodeHash": "428684e5180fec76ba4d87fd38b2bb36c3efc37229c808f4bb455008dce8b19d"
+      },
+      {
+        "address": "0x94A0EF2058A23Dcc1Fb51Db78cdDCFc27253061a",
+        "kind": "NonProxy",
+        "bytecodeHash": "f1e973c2f0e9da4e92b11a5c221c0f7b016ecb08620c7faef128b3aa00d44ee6"
+      }
+    ]
+  },
+  "manifestVersion": "2.2"
+}

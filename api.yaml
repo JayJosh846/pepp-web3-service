@@ -1,0 +1,969 @@
+openapi: 3.0.3
+info:
+  version: 1.0.0
+  title: CHATS API
+  termsOfService: 'https://example.com/terms/'
+  contact:
+    email: contact@example.com
+    url: 'http://example.com/contact'
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+  x-logo:
+    url: 'https://apis.guru/openapi-template/logo.png'
+  description: CHATS system API
+    # Your description here
+servers:
+  - url: 'http://localhost:3001/api/v1/web3/account'
+  - url: 'http://localhost:3001/api/v1/web3/txn'
+tags:
+  - name: CHATS NFT System Data Endpoints
+    description: NFT getter functions endpoints
+  - name: CHATS Token System Data Endpoints
+    description: Token getter functions endpoints
+  - name: CHATS NFT Operations Endpoints
+    description: NFT setter functions endpoints
+  - name: CHATS Token Operations Endpoints
+    description: Token Setter functions endpoints
+   # description: "Get Data"
+
+paths:
+#Returns the name of an NFT collection
+  /nft-name/{collectionIndex}:
+    get:
+      tags:
+        - CHATS NFT System Data Endpoints
+      summary: Returns an NFT name.
+      description: Returns the name of an NFT collection
+      parameters:
+        - name: collectionIndex
+          in: path
+          required: true
+          schema:
+            type : integer
+            format: int64
+      responses:
+        200:    # status code
+          description: Successul Response
+          schema: 
+            type: object
+            properties:
+              collectionName:
+                type: string
+
+#Returns the name of a collection contract
+  /collection-name/{collectionIndex}:
+    get:
+      tags:
+        - CHATS NFT System Data Endpoints
+      summary: Returns the name of a collection contract.
+      description: Name of a deployed NFT collection contract
+      parameters:
+        - name: collectionIndex
+          in: path
+          required: true
+          schema:
+            type : integer
+            format: int64
+      responses:
+        200:    # status code
+          description: Successul Response
+          schema: 
+            type: object
+            properties:
+              contractName:
+                type: string
+
+#Returns the contract address of a collection contract
+  /collection-address/{collectionIndex}:
+    get:
+      tags:
+        - CHATS NFT System Data Endpoints
+      summary: Returns the contract address of a collection contract.
+      description: Contract of a deployed NFT collection contract
+      parameters:
+        - name: collectionIndex
+          in: path
+          required: true
+          schema:
+            type : integer
+            format: int64
+      responses:
+        200:    # status code
+          description: Successul Response
+          schema: 
+            type: object
+            properties:
+              contractAddress:
+                type: string
+
+  #Returns the symbol of a collection contract.
+  /nft-symbol/{collectionIndex}:
+    get:
+      tags:
+        - CHATS NFT System Data Endpoints
+      summary: Returns the symbol of a collection contract.
+      description: Symbol of a deployed NFT collection contract
+      parameters:
+        - name: collectionIndex
+          in: path
+          required: true
+          schema:
+            type : integer
+            format: int64
+      responses:
+        200:    # status code
+          description: Successul Response
+          schema: 
+            type: object
+            properties:
+              NFTsymbol:
+                type: string
+
+  #Returns the metadata URI of an NFT.
+  /token-uri/{collectionIndex}/{tokenId}:
+    get:
+      tags:
+        - CHATS NFT System Data Endpoints
+      summary: Returns the metadata URI of an NFT.
+      description: Metadata URI of an NFT
+      parameters:
+        - name: collectionIndex
+          in: path
+          required: true
+          schema:
+            type : integer
+            format: int64
+        - name: tokenId
+          in: path
+          required: true
+          schema:
+            type : integer
+            format: int64
+      responses:
+        200:    # status code
+          description: Successul Response
+          schema: 
+            type: object
+            properties:
+              tokenURI:
+                type: string
+
+  #Returns the name of a collection contract
+  /nft-balance/{collectionIndex}/{address}:
+    get:
+      tags:
+        - CHATS NFT System Data Endpoints
+      summary: Returns the name of a collection contract.
+      description: Name of a deployed NFT collection contract
+      parameters:
+        - name: collectionIndex
+          in: path
+          required: true
+          schema:
+            type : integer
+            format: int64
+        - name: address
+          in: path
+          required: true
+          schema:
+            type : string
+            format: byte
+      responses:
+        200:    # status code
+          description: Successul Response
+          schema: 
+            type: object
+            properties:
+              NFTbalance:
+                type: integer
+
+  #Returns the total number of NFT minted in a particular collection
+  /total-nft-minted/{collectionIndex}:
+    get:
+      tags:
+        - CHATS NFT System Data Endpoints
+      summary: Returns the total number of NFT minted in a particular collection.
+      description: Total number of NFT minted in a particular collection.
+      parameters:
+        - name: collectionIndex
+          in: path
+          required: true
+          schema:
+            type : integer
+            format: int64
+      responses:
+        200:    # status code
+          description: Successul Response
+          schema: 
+            type: object
+            properties:
+              totalNFTminted:
+                type: integer
+
+  #Returns the approval status of an NFT for a particular address
+  /approve/{collectionIndex}/{tokenId}:
+    get:
+      tags:
+        - CHATS NFT System Data Endpoints
+      summary: Returns the approval status of an NFT for a particular address.
+      description: Approval status of an NFT for a particular address.
+      parameters:
+        - name: collectionIndex
+          in: path
+          required: true
+          schema:
+            type : integer
+            format: int64
+        - name: tokenId
+          in: path
+          required: true
+          schema:
+            type : integer
+            format: int64
+      responses:
+        200:    # status code
+          description: Successul Response
+          schema: 
+            type: object
+            properties:
+              approve:
+                type: boolean
+
+  #Returns the metadata URI of an NFT
+  /nft-owner/{collectionIndex}/{tokenId}:
+    get:
+      tags:
+        - CHATS NFT System Data Endpoints
+      summary: Returns the metadata URI of an NFT.
+      description: Metadata URI of an NFT
+      parameters:
+        - name: collectionIndex
+          in: path
+          required: true
+          schema:
+            type : integer
+            format: int64
+        - name: tokenId
+          in: path
+          required: true
+          schema:
+            type : integer
+            format: int64
+      responses:
+        200:    # status code
+          description: Successul Response
+          schema: 
+            type: object
+            properties:
+              tokenOwner:
+                type: string
+
+
+  #Returns the name of a collection contract
+  /approvalforall/{collectionIndex}/{owner}/{operator}:
+    get:
+      tags:
+        - CHATS NFT System Data Endpoints
+      summary: Returns the name of a collection contract.
+      description: Name of a deployed NFT collection contract
+      parameters:
+        - name: collectionIndex
+          in: path
+          required: true
+          schema:
+            type : integer
+            format: int64
+        - name: owner
+          in: path
+          required: true
+          schema:
+            type : string
+            format: byte
+        - name: operator
+          in: path
+          required: true
+          schema:
+            type : string
+            format: byte
+      responses:
+        200:    # status code
+          description: Successul Response
+          schema: 
+            type: object
+            properties:
+              approvedForAll:
+                type: boolean
+
+  #Return contract Name
+  /ping/:
+    get:
+      tags:
+        - CHATS Token System Data Endpoints
+      summary: Return contract Name.
+      description: Contract Name
+      responses:
+        200:    # status code
+          description: Successul Response
+
+#Returns Super Admin
+  /superadmin:
+    get:
+      tags:
+        - CHATS Token System Data Endpoints
+      summary: Returns Super Admin.
+      description: Super Admin
+      responses:
+        200:    # status code
+          description: Successul Response
+
+#Returns token Totalsupply
+  /totalsupply:
+    get:
+      tags:
+        - CHATS Token System Data Endpoints
+      summary: Returns token Totalsupply.
+      description: Token Total Supply
+      responses:
+        200:    # status code
+          description: Successul Response
+
+#Returns list of users
+  /userlist/{address}:
+    get:
+      tags:
+        - CHATS Token System Data Endpoints
+      summary: Returns list of users.
+      description: List of Users
+      parameters:
+        - name: address
+          in: path
+          required: true
+          schema:
+            type : string
+            format: byte
+      responses:
+        200:    # status code
+          description: Successul Response
+
+#Returns list of admins
+  /adminlist/{address}:
+    get:
+      tags:
+        - CHATS Token System Data Endpoints
+      summary: Returns list of admins.
+      description: List of admins
+      parameters:
+        - name: address
+          in: path
+          required: true
+          schema:
+            type : string
+            format: byte
+      responses:
+        200:    # status code
+          description: Successul Response
+
+#Returns list of auths
+  /authlist/{address}:
+    get:
+      tags:
+        - CHATS Token System Data Endpoints
+      summary: Returns list of auths.
+      description: List of auths
+      parameters:
+        - name: address
+          in: path
+          required: true
+          schema:
+            type : string
+            format: byte
+      responses:
+        200:    # status code
+          description: Successul Response
+
+#Returns list of blacklisted addresses
+  /blacklist/{address}:
+    get:
+      tags:
+        - CHATS Token System Data Endpoints
+      summary: Returns list of blacklisted addresses.
+      description: List of blacklisted addresses
+      parameters:
+        - name: address
+          in: path
+          required: true
+          schema:
+            type : string
+            format: byte
+      responses:
+        200:    # status code
+          description: Successul Response
+
+#Returns amounts of tokens issued
+  /issuedamt/{address}:
+    get:
+      tags:
+        - CHATS Token System Data Endpoints
+      summary: Returns amounts of tokens issued.
+      description: Amounts of tokens issued
+      parameters:
+        - name: address
+          in: path
+          required: true
+          schema:
+            type : string
+            format: byte
+      responses:
+        200:    # status code
+          description: Successul Response
+
+#Returns amounts of tokens redeemed
+  /redeemdamt/{address}:
+    get:
+      tags:
+        - CHATS Token System Data Endpoints
+      summary: Returns amounts of tokens redeemed.
+      description: Amounts of tokens redeemed
+      parameters:
+        - name: address
+          in: path
+          required: true
+          schema:
+            type : string
+            format: byte
+      responses:
+        200:    # status code
+          description: Successul Response
+
+# Returns the Balance of an address
+  /balance/{address}:
+    get:
+      tags:
+        - CHATS Token System Data Endpoints
+      summary: Returns the Balance of an address.
+      description: Balance of an address
+      parameters:
+        - name: address
+          in: path
+          required: true
+          schema:
+            type : string
+            format: byte
+      responses:
+        200:    # status code
+          description: Successul Response
+
+# Allowance
+  /allowance/{tokenOwner}/{spenderAddr}:
+    get:
+      tags:
+        - CHATS Token System Data Endpoints
+      summary: Allowance.
+      description: Allowance
+      parameters:
+        - name: tokenOwner
+          in: path
+          required: true
+          schema:
+            type : string
+            format: byte
+        - name: spenderAddr
+          in: path
+          required: true
+          schema:
+            type : string
+            format: byte
+      responses:
+        200:    # status code
+          description: Successul Response
+#Post json/body & Body required
+  # /create:
+  #   post:
+  #     summary: Adds a new user
+  #     produces:
+  #       - application/json
+  #     consumes:
+  #       - application/json
+  #     parameters:
+  #       - in: body
+  #         name: body
+  #         schema:
+  #           type: object
+  #           required:
+  #             - name
+  #             - id
+  #           properties:
+  #             id:
+  #               type: integer
+  #             name:
+  #               type: string
+  #     responses:
+  #       '200':
+  #         description: OK
+
+
+#Defining Body Reference
+  /mint-nft/{receiver}/{contractIndex}/{tokenURI}:
+    post:
+      tags:
+        - CHATS NFT Operations Endpoints
+      summary: Mints a new NFT
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+          - name: receiver
+            in: path
+            required: true
+            schema:
+              type : string
+              format: byte
+          - name: contractIndex
+            in: path
+            required: true
+            schema:
+              type : integer
+              format: int64
+          - name: tokenURI
+            in: path
+            required: true
+            schema:
+              type: string
+              format: byte
+              
+
+      responses:
+        '200':
+          description: OK
+    
+    #Burns an NFT
+  /burn-nft/{contractIndex}/{tokenID}:
+    post:
+      tags:
+        - CHATS NFT Operations Endpoints
+      summary: Burns an NFT
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - name: contractIndex
+          in: path
+          required: true
+          schema:
+            type : integer
+            format: int64
+        - name: tokenID
+          in: path
+          required: true
+          schema:
+            type: string
+            format: byte
+      responses:
+        '200':
+          description: OK
+  
+    #Approves an address to transfer/spend NFT on behalf of the owner
+  /approve-nft/{operator}/{tokenId}/{contractIndex}:
+    post:
+      tags:
+        - CHATS NFT Operations Endpoints
+      summary: Approves an address to transfer/spend NFT on behalf of the owner
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - name: operator
+          in: path
+          required: true
+          schema:
+            type : string
+            format: byte
+        - name: tokenId
+          in: path
+          required: true
+          schema:
+            type : integer
+            format: int64
+        - name: contractIndex
+          in: path
+          required: true
+          schema:
+            type : integer
+            format: int64           
+      responses:
+        '200':
+          description: OK
+
+    #Transfers an NFT from a sender to a receiver
+  /transfer-nft/{sender}/{receiver}/{tokenId}/{contractIndex}:
+    post:
+      tags:
+        - CHATS NFT Operations Endpoints
+      summary: Transfers an NFT from a sender to a receiver
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - name: sender
+          in: path
+          required: true
+          schema:
+            type : string
+            format: byte
+        - name: receiver
+          in: path
+          required: true
+          schema:
+            type : string
+            format: byte
+        - name: tokenId
+          in: path
+          required: true
+          schema:
+            type : integer
+            format: int64
+        - name: contractIndex
+          in: path
+          required: true
+          schema:
+            type : integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+
+  #Approves an address to transfer/spend all NFTs on behalf of the owner
+  /setapproval-forall-nft/{operator}/{approvalStatus}/{contractIndex}:
+    post:
+      tags:
+        - CHATS NFT Operations Endpoints
+      summary: Approves an address to transfer/spend all NFTs on behalf of the owner
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - name: operator
+          in: path
+          required: true
+          schema:
+            type : string
+            format: byte
+        - name: approvalStatus
+          in: path
+          required: true
+          schema:
+            type : boolean
+        - name: contractIndex
+          in: path
+          required: true
+          schema:
+            type : integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+
+  #Sets the maximum number of NFTs to be minted in a collection
+  /set-nft-limit/{limit}/{contractIndex}:
+    post:
+      tags:
+        - CHATS NFT Operations Endpoints
+      summary: Sets the maximum number of NFTs to be minted in a collection
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - name: limit
+          in: path
+          required: true
+          schema:
+            type : integer
+            format: int64
+        - name: contractIndex
+          in: path
+          required: true
+          schema:
+            type : integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+
+  #Deploys an instance of an NFT collection
+  /deploy-collection/{operator}/{tokenId}/{contractIndex}:
+    post:
+      tags:
+        - CHATS NFT Operations Endpoints
+      summary: Deploys an instance of an NFT collection
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - name: operator
+          in: path
+          required: true
+          schema:
+            type : string
+            format: byte
+        - name: tokenId
+          in: path
+          required: true
+          schema:
+            type : integer
+            format: int64
+        - name: contractIndex
+          in: path
+          required: true
+          schema:
+            type : integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+
+  #Transfers an admin to another user
+  /transferadmin/{receiver}/{amount}:
+    post:
+      tags:
+        - CHATS Token Operations Endpoints
+      summary: Transfers an admin to another user
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - name: receiver
+          in: path
+          required: true
+          schema:
+            type : string
+            format: byte
+        - name: amount
+          in: path
+          required: true
+          schema:
+            type : integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+
+  #Transfers token
+  /transfer/{senderpwsd}/{receiver}/{amount}:
+    post:
+      tags:
+        - CHATS Token Operations Endpoints
+      summary: Transfers token to user
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - name: senderpwsd
+          in: path
+          required: true
+          schema:
+            type : string
+            format: byte
+        - name: receiver
+          in: path
+          required: true
+          schema:
+            type : string
+            format: byte
+        - name: amount
+          in: path
+          required: true
+          schema:
+            type : integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+
+  #Transfers token
+  /mint/{amount}/{mintTo}:
+    post:
+      tags:
+        - CHATS Token Operations Endpoints
+      summary: Mints token
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - name: amount
+          in: path
+          required: true
+          schema:
+            type : integer
+            format: int64
+        - name: mintTo
+          in: path
+          required: true
+          schema:
+            type : string
+            format: byte
+      responses:
+        '200':
+          description: OK
+#Redeems token from users
+  /redeem/{senderpwsd}/{amount}:
+    post:
+      tags:
+        - CHATS Token Operations Endpoints
+      summary: Redeems token from users
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - name: senderpwsd
+          in: path
+          required: true
+          schema:
+            type : string
+            format: byte
+        - name: amount
+          in: path
+          required: true
+          schema:
+            type : integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+
+#Destroys funds in evil/blacklisted
+  /distroyblackfund/{useraddr}:
+    post:
+      tags:
+        - CHATS Token Operations Endpoints
+      summary: Destroys funds/tokens in evil/blacklisted
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - name: useraddr
+          in: path
+          required: true
+          schema:
+            type : string
+            format: byte
+      responses:
+        '200':
+          description: OK
+
+#Approves an address to spend token on behalf of the owner
+  /approve/{tokenownerpswd}/{spenderaddr}/{amount}:
+    post:
+      tags:
+        - CHATS Token Operations Endpoints
+      summary: Approves an address to spend token on behalf of the owner
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - name: tokenownerpswd
+          in: path
+          required: true
+          schema:
+            type : string
+            format: byte
+        - name: spenderaddr
+          in: path
+          required: true
+          schema:
+            type : string
+            format: byte
+        - name: amount
+          in: path
+          required: true
+          schema:
+            type : integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+
+#Disapproves an address to spend token on behalf of the owner
+  /disapprove/{tokenownerpswd}/{spenderaddr}/{amount}:
+    post:
+      tags:
+        - CHATS Token Operations Endpoints
+      summary: Disapproves an address to spend token on behalf of the owner
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - name: tokenownerpswd
+          in: path
+          required: true
+          schema:
+            type : string
+            format: byte
+        - name: spenderaddr
+          in: path
+          required: true
+          schema:
+            type : string
+            format: byte
+        - name: amount
+          in: path
+          required: true
+          schema:
+            type : integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+
+#Transfers token to user
+  /transferfrom/{tokenowneraddr}/{receiveraddr}/{spenderpwsd}/{amount}:
+    post:
+      tags:
+        - CHATS Token Operations Endpoints
+      summary: Transfers tokens to user
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - name: tokenowneraddr
+          in: path
+          required: true
+          schema:
+            type : string
+            format: byte
+        - name: receiveraddr
+          in: path
+          required: true
+          schema:
+            type : string
+            format: byte
+        - name: spenderpswd
+          in: path
+          required: true
+          schema:
+            type : string
+            format: byte
+        - name: amount
+          in: path
+          required: true
+          schema:
+            type : integer
+            format: int64
+      responses:
+        '200':
+          description: OK

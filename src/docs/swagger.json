@@ -1,0 +1,662 @@
+{
+  "info": {
+    "_postman_id": "9712fb2b-86a6-4e58-941f-e67f4e9e4efc",
+    "name": "Supplychain Doc",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Account",
+      "item": [
+        {
+          "name": "GetSuperAdmin",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:7100/api/web3/account/superAdmin",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "7100",
+              "path": ["api", "web3", "account", "superAdmin"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "SuperAdmin",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:7100/api/web3/account/isowner/:address",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "7100",
+              "path": ["api", "web3", "account", "isowner", ":address"],
+              "variable": [
+                {
+                  "key": "address",
+                  "value": "0x412b22315752Ac88B53DEE003E93B9A8c8cD27Dc"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetWhitelistAddr",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:7100/api/web3/account/whitelists/:adminacc",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "7100",
+              "path": ["api", "web3", "account", "whitelists", ":adminacc"],
+              "variable": [
+                {
+                  "key": "adminacc",
+                  "value": "0x38a2AfF4CE60B553767170c0632499224FEeDcb0",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "OwnerInvoiceAddr",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:7100/api/web3/account/ownerinvoiceaddr/:address/:adminacc",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "7100",
+              "path": [
+                "api",
+                "web3",
+                "account",
+                "ownerinvoiceaddr",
+                ":address",
+                ":adminacc"
+              ],
+              "variable": [
+                {
+                  "key": "address",
+                  "type": "string",
+                  "value": "0x38a2AfF4CE60B553767170c0632499224FEeDcb0"
+                },
+                {
+                  "key": "adminacc",
+                  "type": "string",
+                  "value": "0x38a2AfF4CE60B553767170c0632499224FEeDcb0"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "InvoiceInfoOwner",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:7100/api/web3/account/invoiceinfoowner/:address/:assetid/:adminacc",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "7100",
+              "path": [
+                "api",
+                "web3",
+                "account",
+                "invoiceinfoowner",
+                ":address",
+                ":assetid",
+                ":adminacc"
+              ],
+              "variable": [
+                {
+                  "key": "address",
+                  "value": "0xA0E9BF874732813B6260F36E972aAe7ABCB96ABB",
+                  "type": "string"
+                },
+                {
+                  "key": "assetid",
+                  "value": "1",
+                  "type": "string"
+                },
+                {
+                  "key": "adminacc",
+                  "value": "0x38a2AfF4CE60B553767170c0632499224FEeDcb0",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "InvoiceInfo",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:7100/api/web3/account/invoiceinfo/:address/:assetid/:adminacc",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "7100",
+              "path": [
+                "api",
+                "web3",
+                "account",
+                "invoiceinfo",
+                ":address",
+                ":assetid",
+                ":adminacc"
+              ],
+              "variable": [
+                {
+                  "key": "address",
+                  "value": "0xA0E9BF874732813B6260F36E972aAe7ABCB96ABB",
+                  "type": "string"
+                },
+                {
+                  "key": "assetid",
+                  "value": "2",
+                  "type": "string"
+                },
+                {
+                  "key": "adminacc",
+                  "value": "0x38a2AfF4CE60B553767170c0632499224FEeDcb0",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "protocolProfileBehavior": {}
+    },
+    {
+      "name": "UserMgt",
+      "item": [
+        {
+          "name": "CreateAccount",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:7100/api/web3/user/register/:userpwsd",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "7100",
+              "path": ["api", "web3", "user", "register", ":userpwsd"],
+              "variable": [
+                {
+                  "key": "userpwsd",
+                  "value": "HeLLo",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Addadmin",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:7100/api/web3/user/addadmin/:adminacc/:adminname",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "7100",
+              "path": [
+                "api",
+                "web3",
+                "user",
+                "addadmin",
+                ":adminacc",
+                ":adminname"
+              ],
+              "variable": [
+                {
+                  "key": "adminacc",
+                  "value": "0xA0E9BF874732813B6260F36E972aAe7ABCB96ABB",
+                  "type": "string"
+                },
+                {
+                  "key": "adminname",
+                  "value": "SterlingAdmin"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "RemoveAdmin",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:7100/api/web3/user/removeadmin/:adminacc",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "7100",
+              "path": ["api", "web3", "user", "removeadmin", ":adminacc"],
+              "variable": [
+                {
+                  "key": "adminacc",
+                  "value": "0xb3F0D5D0cd6402C0A3Fe90983915873F347BeBAA",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "protocolProfileBehavior": {}
+    },
+    {
+      "name": "Invoicing",
+      "item": [
+        {
+          "name": "TokenizeInvoice",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:7100/api/web3/invoice/reg/:address/:name/:mobileno/:bvn/:clientno/:rcnumber/:invoiceno/:invoicetitle/:quantity/:invoiceurl/:adminacc/:adminpwsd",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "7100",
+              "path": [
+                "api",
+                "web3",
+                "invoice",
+                "reg",
+                ":address",
+                ":name",
+                ":mobileno",
+                ":bvn",
+                ":clientno",
+                ":rcnumber",
+                ":invoiceno",
+                ":invoicetitle",
+                ":quantity",
+                ":invoiceurl",
+                ":adminacc",
+                ":adminpwsd"
+              ],
+              "variable": [
+                {
+                  "key": "address",
+                  "value": "0xA0E9BF874732813B6260F36E972aAe7ABCB96ABB",
+                  "type": "string"
+                },
+                {
+                  "key": "name",
+                  "value": "APITest00011",
+                  "type": "string"
+                },
+                {
+                  "key": "mobileno",
+                  "value": "07061223067",
+                  "type": "string"
+                },
+                {
+                  "key": "bvn",
+                  "value": "2264497878",
+                  "type": "string"
+                },
+                {
+                  "key": "clientno",
+                  "value": "cdr6078",
+                  "type": "string"
+                },
+                {
+                  "key": "rcnumber",
+                  "value": "rc20202022",
+                  "type": "string"
+                },
+                {
+                  "key": "invoiceno",
+                  "value": "inv350",
+                  "type": "string"
+                },
+                {
+                  "key": "invoicetitle",
+                  "value": "sugar",
+                  "type": "string"
+                },
+                {
+                  "key": "quantity",
+                  "value": "700",
+                  "type": "string"
+                },
+                {
+                  "key": "invoiceurl",
+                  "value": "www.hello.com",
+                  "type": "string"
+                },
+                {
+                  "key": "adminacc",
+                  "value": "0xA0E9BF874732813B6260F36E972aAe7ABCB96ABB",
+                  "type": "string"
+                },
+                {
+                  "key": "adminpwsd",
+                  "value": "HeLLo"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "InvoiceTransfer",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:7100/api/web3/invoice/transfer/:senderaddr/:senderassetid/:senderpswd/:receiveraddr/:namereceiver/:mobilenoreceiver/:bvnreceiver/:clientnoreceiver/:rcnumberreceiver/:invoiceurlreceiver/:adminacc/:adminname",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "7100",
+              "path": [
+                "api",
+                "web3",
+                "invoice",
+                "transfer",
+                ":senderaddr",
+                ":senderassetid",
+                ":senderpswd",
+                ":receiveraddr",
+                ":namereceiver",
+                ":mobilenoreceiver",
+                ":bvnreceiver",
+                ":clientnoreceiver",
+                ":rcnumberreceiver",
+                ":invoiceurlreceiver",
+                ":adminacc",
+                ":adminname"
+              ],
+              "variable": [
+                {
+                  "key": "senderaddr",
+                  "value": "0xA0E9BF874732813B6260F36E972aAe7ABCB96ABB"
+                },
+                {
+                  "key": "senderassetid",
+                  "value": "0"
+                },
+                {
+                  "key": "senderpswd",
+                  "value": "HeLLo"
+                },
+                {
+                  "key": "receiveraddr",
+                  "value": "0x38a2AfF4CE60B553767170c0632499224FEeDcb0"
+                },
+                {
+                  "key": "namereceiver",
+                  "value": "SuperAdmin"
+                },
+                {
+                  "key": "mobilenoreceiver",
+                  "value": "07061223067"
+                },
+                {
+                  "key": "bvnreceiver",
+                  "value": "11223344555"
+                },
+                {
+                  "key": "clientnoreceiver",
+                  "value": "123234"
+                },
+                {
+                  "key": "rcnumberreceiver",
+                  "value": "234345"
+                },
+                {
+                  "key": "invoiceurlreceiver",
+                  "value": "www.helloetienne.com"
+                },
+                {
+                  "key": "adminacc",
+                  "value": "0xA0E9BF874732813B6260F36E972aAe7ABCB96ABB"
+                },
+                {
+                  "key": "adminname",
+                  "value": "HeLLo"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "InvoiceRegistration",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:7100/api/web3/invoice/saveinvoice/:address/:assetid/:invoiceno/:invoicetitle/:quantity/:invoiceurl/:adminacc/:adminpwsd",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "7100",
+              "path": [
+                "api",
+                "web3",
+                "invoice",
+                "saveinvoice",
+                ":address",
+                ":assetid",
+                ":invoiceno",
+                ":invoicetitle",
+                ":quantity",
+                ":invoiceurl",
+                ":adminacc",
+                ":adminpwsd"
+              ],
+              "variable": [
+                {
+                  "key": "address",
+                  "value": "0xA0E9BF874732813B6260F36E972aAe7ABCB96ABB"
+                },
+                {
+                  "key": "assetid",
+                  "value": "2"
+                },
+                {
+                  "key": "invoiceno",
+                  "value": "123234"
+                },
+                {
+                  "key": "invoicetitle",
+                  "value": "Milk"
+                },
+                {
+                  "key": "quantity",
+                  "value": "20"
+                },
+                {
+                  "key": "invoiceurl",
+                  "value": "www.cmdregistration.com"
+                },
+                {
+                  "key": "adminacc",
+                  "value": "0xA0E9BF874732813B6260F36E972aAe7ABCB96ABB"
+                },
+                {
+                  "key": "adminpwsd",
+                  "value": "HeLLo"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "EditInvoice",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:7100/api/web3/invoice/edit/:address/:assetid/:newquantity/:newinvoiceurl/:adminacc/:adminpwsd",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "7100",
+              "path": [
+                "api",
+                "web3",
+                "invoice",
+                "edit",
+                ":address",
+                ":assetid",
+                ":newquantity",
+                ":newinvoiceurl",
+                ":adminacc",
+                ":adminpwsd"
+              ],
+              "variable": [
+                {
+                  "key": "address",
+                  "value": "0xA0E9BF874732813B6260F36E972aAe7ABCB96ABB"
+                },
+                {
+                  "key": "assetid",
+                  "value": "1"
+                },
+                {
+                  "key": "newquantity",
+                  "value": "2300"
+                },
+                {
+                  "key": "newinvoiceurl",
+                  "value": "www.cmdedited.com"
+                },
+                {
+                  "key": "adminacc",
+                  "value": "0xA0E9BF874732813B6260F36E972aAe7ABCB96ABB"
+                },
+                {
+                  "key": "adminpwsd",
+                  "value": "HeLLo"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "BurnInvoice",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:7100/api/web3/invoice/burn/:address/:assetid/:ownerpwsd",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "7100",
+              "path": [
+                "api",
+                "web3",
+                "invoice",
+                "burn",
+                ":address",
+                ":assetid",
+                ":ownerpwsd"
+              ],
+              "variable": [
+                {
+                  "key": "address",
+                  "value": "0xA0E9BF874732813B6260F36E972aAe7ABCB96ABB"
+                },
+                {
+                  "key": "assetid",
+                  "value": "0"
+                },
+                {
+                  "key": "ownerpwsd",
+                  "value": "HeLLo"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "protocolProfileBehavior": {}
+    },
+    {
+      "name": "IPFS",
+      "item": [
+        {
+          "name": "UploadFiles",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "doc",
+                  "type": "file",
+                  "src": "/Users/mac/Desktop/sample1.png"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:7100/api/v1/ipfs/uploadfile",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "7100",
+              "path": ["api", "v1", "ipfs", "uploadfile"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DownloadFiles",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "cid",
+                  "value": "",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:7100/api/v1/ipfs/getfile",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "7100",
+              "path": ["api", "v1", "ipfs", "getfile"]
+            }
+          },
+          "response": []
+        }
+      ],
+      "protocolProfileBehavior": {}
+    }
+  ],
+  "protocolProfileBehavior": {}
+}

@@ -1,0 +1,33 @@
+version: "3.9"
+
+services:
+  token-app-staging:
+    container_name: token-app-staging
+    build:
+      context: .
+      dockerfile: ./stagingconfig/Dockerfile
+    ports:
+      - 3001:3001
+    networks:
+      - gateway
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+
+networks:
+  gateway:
+    driver: bridge
+
+volumes:
+  web-root1:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/ubuntu/token-chats-staging/views/
+      o: bind
+  dhparam1:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/ubuntu/token-chats-staging/dhparam/
+      o: bind
